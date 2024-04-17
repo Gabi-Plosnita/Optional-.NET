@@ -1,8 +1,19 @@
+using LibraryManagement.Database.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var config = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+builder.Services.AddDbContext<LibraryDbContext>(
+    options => options.UseSqlServer(config.GetConnectionString("DatabaseConnection")));
 
 var app = builder.Build();
 
