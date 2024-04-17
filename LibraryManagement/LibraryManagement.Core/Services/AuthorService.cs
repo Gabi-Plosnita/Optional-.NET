@@ -1,4 +1,6 @@
 ﻿using LibraryManagement.Core.Dtos.Response;
+using LibraryManagement.Core.Mapping;
+using LibraryManagement.Database.Entities;
 using LibraryManagement.Database.Repositories;
 
 namespace LibraryManagement.Core.Services
@@ -12,9 +14,18 @@ namespace LibraryManagement.Core.Services
             _authorRepository = authorRepository;
         }
 
-        List<AuthorRequestDto> IAuthorService.GetAuthors()
+        public List<AuthorResponseDto> GetAuthors()
         {
-            throw new NotImplementedException();
+            List<Author> authors = _authorRepository.GetAuthors();
+
+            List<AuthorResponseDto> authorResponseDtos = new List<AuthorResponseDto>();
+
+            foreach (Author author in authors)
+            {
+                authorResponseDtos.Add(author.ToAuthorResponseDto());
+            }
+
+            return authorResponseDtos;
         }
     }
 }
