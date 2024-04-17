@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.Core.Services;
 using Microsoft.AspNetCore.Mvc;
+using LibraryManagement.Core.Dtos.Response;
 
 namespace LibraryManagement.Api.Controllers
 {
@@ -10,6 +11,14 @@ namespace LibraryManagement.Api.Controllers
         public AuthorsController(IAuthorService authorService)
         {
             _authorService = authorService;
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+
+        public ActionResult<List<AuthorResponseDto>> GetAuthors()
+        {
+            return Ok(_authorService.GetAuthors());
         }
     }
 }
