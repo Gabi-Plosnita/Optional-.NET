@@ -10,4 +10,8 @@
     <ProjectReference Include="..\LibraryManagement.Database\LibraryManagement.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\Request\" />
+  </ItemGroup>
+
 </Project>
