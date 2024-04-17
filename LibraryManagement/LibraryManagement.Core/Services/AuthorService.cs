@@ -1,4 +1,4 @@
-﻿using LibraryManagement.Core.Dtos.Request;
+﻿using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Database.Repositories;
 
 namespace LibraryManagement.Core.Services

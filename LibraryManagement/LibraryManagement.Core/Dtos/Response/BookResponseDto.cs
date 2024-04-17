@@ -1,6 +1,6 @@
-﻿namespace LibraryManagement.Core.Dtos.Request
+﻿namespace LibraryManagement.Core.Dtos.Response
 {
-    public class BookRequestDto
+    public class BookResponseDto
     {
         public int Id { get; set; }
 
