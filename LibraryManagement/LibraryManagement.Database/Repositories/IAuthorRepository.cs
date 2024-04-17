@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement.Database.Repositories
 {
-    public interface ILibraryRepository
+    public interface IAuthorRepository
     {
 
     }
