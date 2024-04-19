@@ -1,4 +1,5 @@
-﻿using LibraryManagement.Core.Dtos.Response;
+﻿using LibraryManagement.Core.Dtos.Request;
+using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Database.Entities;
 
 namespace LibraryManagement.Core.Mapping
@@ -22,6 +23,14 @@ namespace LibraryManagement.Core.Mapping
             result.Books = booksDto;
 
             return result;
+        }
+
+        public static Author ToAuthor(this AuthorRequestDto author)
+        {
+            return new Author
+            {
+                FullName = author.FullName
+            };
         }
     }
 }
