@@ -5,5 +5,7 @@ namespace LibraryManagement.Database.Repositories
     public interface IAuthorRepository
     {
         List<Author> GetAuthors(); 
+
+        void CreateAuthor(Author author);
     }
 }
