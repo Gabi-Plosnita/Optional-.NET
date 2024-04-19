@@ -20,9 +20,12 @@ namespace LibraryManagement.Database.Repositories
             return result;
         }
 
-        public void CreateAuthor(Author author)
+        public int CreateAuthor(Author author)
         {
             _libraryDbContext.Authors.Add(author);
+            _libraryDbContext.SaveChanges();
+
+            return author.Id;
         }
     }
 }

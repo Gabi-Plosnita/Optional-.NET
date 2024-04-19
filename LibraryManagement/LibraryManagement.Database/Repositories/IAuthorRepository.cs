@@ -6,6 +6,6 @@ namespace LibraryManagement.Database.Repositories
     {
         List<Author> GetAuthors(); 
 
-        void CreateAuthor(Author author);
+        int CreateAuthor(Author author);
     }
 }
