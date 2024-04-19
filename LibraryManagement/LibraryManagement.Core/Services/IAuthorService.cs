@@ -7,6 +7,6 @@ namespace LibraryManagement.Core.Services
     {
         List<AuthorResponseDto> GetAuthors();
 
-        void CreateAuthor(AuthorRequestDto author);
+        int CreateAuthor(AuthorRequestDto author);
     }
 }

@@ -29,9 +29,10 @@ namespace LibraryManagement.Core.Services
             return authorResponseDtos;
         }
 
-        public void CreateAuthor(AuthorRequestDto author)
+        public int CreateAuthor(AuthorRequestDto author)
         {
-            _authorRepository.CreateAuthor(author.ToAuthor());
+            int id = _authorRepository.CreateAuthor(author.ToAuthor());
+            return id;
         }
     }
 }
