@@ -4,7 +4,7 @@ using LibraryManagement.Database.Repositories;
 
 namespace LibraryManagement.Core.Services
 {
-    public class BookService
+    public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
 
