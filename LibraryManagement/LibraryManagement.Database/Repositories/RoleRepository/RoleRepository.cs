@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.Database.Context;
 using LibraryManagement.Database.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagement.Database.Repositories
 {
@@ -52,10 +53,18 @@ namespace LibraryManagement.Database.Repositories
 
         public void Delete(int id)
         {
-            var role = _libraryDbContext.Roles.Find(id);
+            var role = _libraryDbContext.Roles
+                                        .Where(r => r.Id == id)
+                                        .Include(r => r.Users)
+                                        .FirstOrDefault();
             if (role == null)
             {
                 throw new Exception("Role not found");
+            }
+
+            if(role.Users.Count > 0)
+            {
+                throw new Exception("Role has users assigned to it and can't be deleted");
             }
 
             _libraryDbContext.Roles.Remove(role);
