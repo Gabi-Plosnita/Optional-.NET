@@ -1,8 +1,6 @@
-﻿using Azure.Core;
-using LibraryManagement.Core.Dtos.Request;
+﻿using LibraryManagement.Core.Dtos.Request;
 using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Core.Mapping;
-using LibraryManagement.Database.Entities;
 using LibraryManagement.Database.Repositories;
 
 namespace LibraryManagement.Core.Services
