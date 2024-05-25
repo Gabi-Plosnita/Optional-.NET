@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagement.Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/Users")]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
@@ -52,7 +53,7 @@ namespace LibraryManagement.Api.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
@@ -61,7 +62,7 @@ namespace LibraryManagement.Api.Controllers
             return Ok(_userService.GetAll());
         }
 
-        [Authorize(Roles = "Admin")]
+
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -79,7 +80,7 @@ namespace LibraryManagement.Api.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

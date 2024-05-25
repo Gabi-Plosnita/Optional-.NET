@@ -8,11 +8,11 @@ namespace LibraryManagement.Api.Controllers
 {
     [Authorize(Roles = "Admin")]
     [Route("api/Roles")]
-    public class RoleController : ControllerBase
+    public class RolesController : ControllerBase
     {
         private readonly IRoleService _roleService;
 
-        public RoleController(IRoleService roleService)
+        public RolesController(IRoleService roleService)
         {
             _roleService = roleService;
         }
