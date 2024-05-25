@@ -12,9 +12,15 @@ namespace LibraryManagement.Core.Mapping
             {
                 Id = book.Id,
                 Title = book.Title,
+                AuthorName = book.Author.FullName
             };
 
             return result;
+        }
+
+        public static List<BookResponseDto> MapToBookResponseDtos(this List<Book> books)
+        {
+            return books.Select(b => b.ToBookResponseDto()).ToList();
         }
 
         public static Book ToBook(this BookRequestDto book)
