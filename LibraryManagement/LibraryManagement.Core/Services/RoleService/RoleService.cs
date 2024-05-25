@@ -3,7 +3,7 @@ using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Core.Mapping;
 using LibraryManagement.Database.Repositories;
 
-namespace LibraryManagement.Core.Services.RoleService
+namespace LibraryManagement.Core.Services
 {
     public class RoleService : IRoleService
     {

@@ -5,7 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace LibraryManagement.Core.Services.AuthenticationService
+namespace LibraryManagement.Core.Services
 {
     public class AuthenticationService : IAuthenticationService
     {

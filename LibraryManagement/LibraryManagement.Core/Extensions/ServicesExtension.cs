@@ -13,6 +13,14 @@ namespace LibraryManagement.Core.Extensions
 
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IBookRepository, BookRepository>();
+
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
     }
