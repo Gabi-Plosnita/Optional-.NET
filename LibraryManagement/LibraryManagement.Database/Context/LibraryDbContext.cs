@@ -9,6 +9,10 @@ namespace LibraryManagement.Database.Context
 
         public DbSet<Book> Books { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) { }
     }
 }
