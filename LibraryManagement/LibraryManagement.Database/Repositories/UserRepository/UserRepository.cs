@@ -70,6 +70,11 @@ namespace LibraryManagement.Database.Repositories
                 throw new Exception("Role not found");
             }
 
+            if(_libraryDbContext.Users.Any(u => u.Email == updatedUser.Email && u.Email != user.Email))
+            {
+                throw new Exception("Email already exists");
+            }
+
             user.Name = updatedUser.Name;
             user.Email = updatedUser.Email;
             user.Password = updatedUser.Password;
