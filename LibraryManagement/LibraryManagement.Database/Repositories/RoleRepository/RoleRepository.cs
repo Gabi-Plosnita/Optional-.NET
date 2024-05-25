@@ -1,7 +1,7 @@
 ﻿using LibraryManagement.Database.Context;
 using LibraryManagement.Database.Entities;
 
-namespace LibraryManagement.Database.Repositories.RoleRepository
+namespace LibraryManagement.Database.Repositories
 {
     public class RoleRepository : BaseRepository, IRoleRepository
     {
