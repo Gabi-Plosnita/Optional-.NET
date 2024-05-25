@@ -43,7 +43,7 @@ namespace LibraryManagement.Database.Repositories
                 throw new Exception("Role not found");
             }
 
-            if(_libraryDbContext.Roles.Any(r => r.Name == updatedRole.Name))
+            if(_libraryDbContext.Roles.Any(r => r.Name == updatedRole.Name && r.Name != role.Name))
             {
                 throw new Exception($"Role with name {updatedRole.Name} already exists");
             }
