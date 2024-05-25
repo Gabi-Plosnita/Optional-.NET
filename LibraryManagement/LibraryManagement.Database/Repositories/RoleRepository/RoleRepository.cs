@@ -9,6 +9,7 @@ namespace LibraryManagement.Database.Repositories
         public RoleRepository(LibraryDbContext context) : base(context)
         {
         }
+
         public List<Role> GetAll()
         {
             return _libraryDbContext.Roles.ToList();
