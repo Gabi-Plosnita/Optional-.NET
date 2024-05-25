@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Core.Dtos.Request;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LibraryManagement.Api.Controllers
 {
@@ -14,6 +15,7 @@ namespace LibraryManagement.Api.Controllers
             _authorService = authorService;
         }
 
+        [Authorize(Roles= "Admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
@@ -22,6 +24,7 @@ namespace LibraryManagement.Api.Controllers
             return Ok(_authorService.GetAuthors());
         }
 
+        [Authorize(Roles = "Author")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
 

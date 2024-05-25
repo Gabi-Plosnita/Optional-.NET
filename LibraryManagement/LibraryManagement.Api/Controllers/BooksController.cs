@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.Core.Dtos.Request;
 using LibraryManagement.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagement.Api.Controllers
@@ -14,6 +15,7 @@ namespace LibraryManagement.Api.Controllers
             _bookService = bookService;
         }
 
+        [Authorize(Roles = "Author")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

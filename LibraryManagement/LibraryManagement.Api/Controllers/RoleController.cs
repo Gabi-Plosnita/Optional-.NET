@@ -1,10 +1,12 @@
 ﻿using LibraryManagement.Core.Dtos.Request;
 using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagement.Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/Roles")]
     public class RoleController : ControllerBase
     {

@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Core.Dtos.Request;
 using LibraryManagement.Core.Dtos.Response;
 using LibraryManagement.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagement.Api.Controllers
@@ -15,6 +16,7 @@ namespace LibraryManagement.Api.Controllers
             _userService = userService;
         }
 
+        [AllowAnonymous]
         [HttpPost("/register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -32,6 +34,7 @@ namespace LibraryManagement.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost("/login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -49,6 +52,7 @@ namespace LibraryManagement.Api.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
@@ -57,6 +61,7 @@ namespace LibraryManagement.Api.Controllers
             return Ok(_userService.GetAll());
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -74,6 +79,7 @@ namespace LibraryManagement.Api.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
