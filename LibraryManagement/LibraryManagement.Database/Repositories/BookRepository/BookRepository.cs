@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.Database.Context;
 using LibraryManagement.Database.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagement.Database.Repositories
 {
@@ -7,6 +8,14 @@ namespace LibraryManagement.Database.Repositories
     {
         public BookRepository(LibraryDbContext context) : base(context)
         {
+        }
+
+        public List<Book> GetBooks()
+        {
+            var books = _libraryDbContext.Books
+                                         .Include(b => b.Author)
+                                         .ToList();
+            return books;
         }
 
         public int CreateBook(Book book)
